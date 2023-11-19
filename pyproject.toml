@@ -1,6 +1,6 @@
 [project]
-name = "naturalsize_LK-Software"
-version = "1.0.0"
+name = "naturalsize"
+version = "1.0.6"
 authors = [
   { name="Leander Kafemann", email="leander@kafemann.berlin" },
 ]
@@ -14,4 +14,4 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/pypa/sampleproject"
+Homepage = "https://github.com/LK-PyPi/naturalsize"
