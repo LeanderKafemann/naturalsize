@@ -1,6 +1,6 @@
 [project]
 name = "naturalsize"
-version = "1.0.7"
+version = "1.0.8"
 authors = [
   { name="Leander Kafemann", email="leander@kafemann.berlin" },
 ]
