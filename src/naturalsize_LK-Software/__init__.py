@@ -14,25 +14,25 @@ def nsize(value: int, comma: int = 2):
     comma -- integer value of maximum ndigits
     """
     values = [1, 1024]
-    for i in range(6):
+    for i in range(8):
         values.append(values[-1]*1024)
-    names = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB"]
+    names = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "LK1", "LK2"]
     idx = 0
     while value > values[idx+1]:
         idx += 1
-    return str(round(value/values[idx], ndigits=comma if comma != 0 else None))+names[idx]
+    return str(round(value/values[idx], ndigits=comma if comma != 0 else None))+" "+names[idx]
 def about():
     """
     Returns information about your release
     """
-    return {"Version":(1, 0, 6), "Author":"Leander Kafemann", date:"19.11.2023", recommend:("Büro by LK", "Verschlüsseler by LK", "bueroUtils by LK")}
+    return {"Version":(1, 0, 7), "Author":"Leander Kafemann", date:"20.11.2023", recommend:("Büro by LK", "Verschlüsseler by LK", "flappy bird by LK", "isolated_env by LK")}
 def randprinter(numb: int = 1000, signs: list = list("abcdefghijklmnopqrstuvwxyzäöüß01234567890#'+*-_.:,;!§$%&/()=?`<>^°"), utf8: bool = False):
     """
     Prints numb random signs
     args:
     numb -- integer numb of signs
     signs -- list of possible signs
-    utf8 -- utf8RandomMode
+    utf8 -- utf8RandomMode (coming soon...)
     """
     import random
     for i in range(numb):
@@ -49,3 +49,5 @@ def special_starter(numb: int = 150000000):
         return False
     except KeyboardInterrupt:
         return True
+    except:
+        return None
