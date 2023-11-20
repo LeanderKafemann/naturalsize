@@ -25,11 +25,12 @@ def about():
     """
     Returns information about your release
     """
-    return {"Version":(1, 0, 7), "Author":"Leander Kafemann", date:"20.11.2023", recommend:("Büro by LK", "Verschlüsseler by LK", "flappy bird by LK", "isolated_env by LK")}
-def randprinter(numb: int = 1000, signs: list = list("abcdefghijklmnopqrstuvwxyzäöüß01234567890#'+*-_.:,;!§$%&/()=?`<>^°"), utf8: bool = False):
+    return {"Version":(1, 0, 8), "Author":"Leander Kafemann", date:"20.11.2023", recommend:("Büro by LK", "Verschlüsseler by LK", "flappy bird by LK", "isolated_env by LK")}
+def randprinter(kbdEvt=None, numb: int = 1000, signs: list = list("abcdefghijklmnopqrstuvwxyzäöüß01234567890#'+*-_.:,;!§$%&/()=?`<>^°"), utf8: bool = False):
     """
     Prints numb random signs
     args:
+    kbdEvt -- keaboardEvent
     numb -- integer numb of signs
     signs -- list of possible signs
     utf8 -- utf8RandomMode (coming soon...)
