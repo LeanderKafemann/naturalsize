@@ -25,12 +25,11 @@ def about():
     """
     Returns information about your release
     """
-    return {"Version":(1, 0, 8), "Author":"Leander Kafemann", date:"20.11.2023", recommend:("Büro by LK", "Verschlüsseler by LK", "flappy bird by LK", "isolated_env by LK")}
-def randprinter(kbdEvt=None, numb: int = 1000, signs: list = list("abcdefghijklmnopqrstuvwxyzäöüß01234567890#'+*-_.:,;!§$%&/()=?`<>^°"), utf8: bool = False):
+    return {"Version":(1, 0, 9), "Author":"Leander Kafemann", date:"22.11.2023", recommend:("Büro by LK", "Verschlüsseler by LK", "flappy bird by LK", "isolated_env by LK")}
+def randprinter(numb: int = 1000, signs: list = list("abcdefghijklmnopqrstuvwxyzäöüß01234567890#'+*-_.:,;!§$%&/()=?`<>^°"), utf8: bool = False):
     """
     Prints numb random signs
     args:
-    kbdEvt -- keaboardEvent
     numb -- integer numb of signs
     signs -- list of possible signs
     utf8 -- utf8RandomMode (coming soon...)
@@ -38,6 +37,13 @@ def randprinter(kbdEvt=None, numb: int = 1000, signs: list = list("abcdefghijklm
     import random
     for i in range(numb):
         print(random.choice(signs), end="")
+def randprinter_(numb: int = 1000, signs:list = list("abcdefghijklmnopqrstuvwxyzäöüß01234567890#'+*-_.:,;!§$%&/()=?`<>^°")):
+    """
+    Method for getting randprinter method with personalised values.
+    """
+    def a(spam):
+        randprinter(numb, signs)
+    return a
 def special_starter(numb: int = 150000000):
     """
     Func for special startup:
