@@ -28,7 +28,7 @@ def about():
     """
     Returns information about your release and other projects by LK
     """
-    return {"Version":(1, 0, 11), "Author":"Leander Kafemann", date:"26.12.2023", recommend:("Büro by LK", "Verschlüsseler by LK", "flappy bird by LK", "isolated_env by LK"), feedbackTo: "leander@kafemann.berlin"}
+    return {"Version":(1, 0, 12), "Author":"Leander Kafemann", date:"26.12.2023", recommend:("Büro by LK", "Verschlüsseler by LK", "flappy bird by LK", "pyimager by LK", "pycols by LK"), feedbackTo: "leander@kafemann.berlin"}
 def randprinter(numb: int = 1000, signs: list = list("abcdefghijklmnopqrstuvwxyzäöüß01234567890#'+*-_.:,;!§$%&/()=?`<>^°"), utf8: bool = False):
     """
     Prints numb random signs
