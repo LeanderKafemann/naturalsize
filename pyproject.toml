@@ -1,10 +1,10 @@
 [project]
-name = "naturalsize"
-version = "1.0.11"
+name = "pycols"
+version = "1.0.1"
 authors = [
-  { name="Leander Kafemann", email="leander@kafemann.berlin" },
+  {name="Leander Kafemann", email="leander@kafemann.berlin" },
 ]
-description = "get human-readable size of files"
+description = "display colors in console"
 readme = "README.md"
 requires-python = ">=3.11"
 classifiers = [
@@ -12,6 +12,9 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+dependencies = [
+	"colorama",
+]
 
 [project.urls]
-Homepage = "https://github.com/LK-PyPi/naturalsize"
+Homepage = "https://github.com/LeanderKafemann/pycols"
