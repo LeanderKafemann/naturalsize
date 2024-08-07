@@ -6,8 +6,10 @@ about -- returns information about actual release
 randprinter -- prints random signs
 rendprinter_ -- returns callable randprinter-object with customized settings
 special_starter -- func for special startup
-listToInt -- adds up all integer values of a list
+listToInt -- sums up all integer values of a list
 reverse -- reverses boolean
+replStr -- replace part of str
+replStrPassage -- replace longer part of str
 """
 
 def nsize(value: int, comma: int = 2, names: list = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "LK1", "LK2"]):
@@ -30,7 +32,7 @@ def about():
     """
     Returns information about your release and other projects by LK
     """
-    return {"Version":(1, 0, 13), "Author": "Leander Kafemann", "date": "07.08.2024", "recommend": ("Büro by LK", "flappy bird by LK", "pyimager by LK"), "feedbackTo": "leander@kafemann.berlin"}
+    return {"Version":(1, 0, 14), "Author": "Leander Kafemann", "date": "07.08.2024", "recommend": ("Büro by LK", "flappy bird by LK", "pyimager by LK"), "feedbackTo": "leander@kafemann.berlin"}
 
 def randprinter(numb: int = 1000, signs: list = list("abcdefghijklmnopqrstuvwxyzäöüß01234567890#'+*-_.:,;!§$%&/()=?`<>^°"), utf8: bool = False):
     """
@@ -73,7 +75,7 @@ def special_starter(numb: int = 150000000):
         
 def listToInt(list_: list[int] = [], acceptFloat: bool = True):
     """
-    Adds all integer-values of a list together.
+    Sums all integer-values of a list together.
     acceptFloat -- shall floats also be added to the sum
     """
     n = 0
@@ -97,3 +99,19 @@ def isInt(toCheck, acceptFloat: bool = False):
     acceptFloat -- shall floats also be accepted as ints
     """
     return type(toCheck) == int or (type(toCheck) == float and acceptFloat)
+
+def replStr(index: int = 0, strObj: str = "a", setIn: str = "b"):
+    """
+    Replace index value of strObj with setIn text.
+    """
+    return strObj[:index]+setIn+strObj[index+1:]
+
+def replStrPassage(indexstart: int = 0, indexend: int = 1, strObj: str = "abc", setIn: str = "d"):
+    """
+    Replace all characters of strObj from indexstart to indexend with setIn.
+    """
+    idxact = indexend
+    while idxact != indexstart:
+        strObj = replStr(idxact, strObj, "")
+        idxact -= 1
+    return replStr(indexstart, strObj, setIn)
