@@ -9,6 +9,7 @@ special_starter -- func for special startup
 listToInt -- adds up all integer values of a list
 reverse -- reverses boolean
 """
+
 def nsize(value: int, comma: int = 2, names: list = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "LK1", "LK2"]):
     """
     returns human-readable size of a file
@@ -24,11 +25,13 @@ def nsize(value: int, comma: int = 2, names: list = ["B", "KB", "MB", "GB", "TB"
     while value > values[idx+1]:
         idx += 1
     return str(round(value/values[idx], ndigits=comma if comma != 0 else None))+" "+names[idx]
+
 def about():
     """
     Returns information about your release and other projects by LK
     """
-    return {"Version":(1, 0, 12), "Author":"Leander Kafemann", date:"26.12.2023", recommend:("Büro by LK", "Verschlüsseler by LK", "flappy bird by LK", "pyimager by LK", "pycols by LK"), feedbackTo: "leander@kafemann.berlin"}
+    return {"Version":(1, 0, 13), "Author": "Leander Kafemann", "date": "07.08.2024", "recommend": ("Büro by LK", "flappy bird by LK", "pyimager by LK"), "feedbackTo": "leander@kafemann.berlin"}
+
 def randprinter(numb: int = 1000, signs: list = list("abcdefghijklmnopqrstuvwxyzäöüß01234567890#'+*-_.:,;!§$%&/()=?`<>^°"), utf8: bool = False):
     """
     Prints numb random signs
@@ -40,6 +43,7 @@ def randprinter(numb: int = 1000, signs: list = list("abcdefghijklmnopqrstuvwxyz
     import random
     for i in range(numb):
         print(random.choice(signs), end="")
+        
 def randprinter_(numb: int = 1000, signs:list = list("abcdefghijklmnopqrstuvwxyzäöüß01234567890#'+*-_.:,;!§$%&/()=?`<>^°")):
     """
     Method for getting randprinter method with personalised values.
@@ -51,6 +55,7 @@ def randprinter_(numb: int = 1000, signs:list = list("abcdefghijklmnopqrstuvwxyz
         """
         randprinter(numb, signs)
     return a; callable
+    
 def special_starter(numb: int = 150000000):
     """
     Func for e.g. special startup:
@@ -65,14 +70,18 @@ def special_starter(numb: int = 150000000):
         return True; bool
     except:
         return None; bool
-def listToInt(list_: list[int] = []):
+        
+def listToInt(list_: list[int] = [], acceptFloat: bool = True):
     """
     Adds all integer-values of a list together.
+    acceptFloat -- shall floats also be added to the sum
     """
     n = 0
     for i in list_:
-        n += i
+        if isInt(i, acceptFloat):
+            n += i
     return n; int
+    
 def reverse(boolean: bool = None):
     """
     Inverses given boolean
@@ -81,6 +90,7 @@ def reverse(boolean: bool = None):
         return True if not boolean else False
     else:
         return None
+    
 def isInt(toCheck, acceptFloat: bool = False):
     """
     Checks whether given value is int
