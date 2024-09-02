@@ -4,7 +4,7 @@ funcs:
 nsize -- returns human-readable size of file
 about -- returns information about actual release
 randprinter -- prints random signs
-rendprinter_ -- returns callable randprinter-object with customized settings
+randprinter_ -- returns callable randprinter-object with customized settings
 special_starter -- func for special startup
 listToInt -- sums up all integer values of a list
 reverse -- reverses boolean
@@ -32,7 +32,7 @@ def about():
     """
     Returns information about your release and other projects by LK
     """
-    return {"Version":(1, 0, 14), "Author": "Leander Kafemann", "date": "07.08.2024", "recommend": ("Büro by LK", "flappy bird by LK", "pyimager by LK"), "feedbackTo": "leander@kafemann.berlin"}
+    return {"Version":(1, 0, 15), "Author": "Leander Kafemann", "date": "02.09.2024", "recommend": ("Büro by LK", "flappy bird by LK", "pyimager by LK"), "feedbackTo": "leander@kafemann.berlin"}
 
 def randprinter(numb: int = 1000, signs: list = list("abcdefghijklmnopqrstuvwxyzäöüß01234567890#'+*-_.:,;!§$%&/()=?`<>^°"), utf8: bool = False):
     """
@@ -43,7 +43,7 @@ def randprinter(numb: int = 1000, signs: list = list("abcdefghijklmnopqrstuvwxyz
     utf8 -- utf8RandomMode (coming soon...)
     """
     import random
-    for i in range(numb):
+    for _ in range(numb):
         print(random.choice(signs), end="")
         
 def randprinter_(numb: int = 1000, signs:list = list("abcdefghijklmnopqrstuvwxyzäöüß01234567890#'+*-_.:,;!§$%&/()=?`<>^°")):
