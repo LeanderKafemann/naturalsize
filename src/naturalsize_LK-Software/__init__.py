@@ -12,7 +12,9 @@ replStr -- replace part of str
 replStrPassage -- replace longer part of str
 """
 
-def nsize(value: int, comma: int = 2, names: list = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "LK1", "LK2"]):
+from typing import Any
+
+def nsize(value: int, comma: int = 2, names: list = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "LK1", "LK2"]) -> str:
     """
     returns human-readable size of a file
     args:
@@ -21,18 +23,18 @@ def nsize(value: int, comma: int = 2, names: list = ["B", "KB", "MB", "GB", "TB"
     names -- list of human-readable names of 1024-B-stepped size args
     """
     values = [1, 1024]
-    for i in range(len(names)-2):
+    for _ in range(len(names)-2):
         values.append(values[-1]*1024)
     idx = 0
     while value > values[idx+1]:
         idx += 1
     return str(round(value/values[idx], ndigits=comma if comma != 0 else None))+" "+names[idx]
 
-def about():
+def about() -> dict[str, (str | tuple)]:
     """
     Returns information about your release and other projects by LK
     """
-    return {"Version":(1, 0, 15), "Author": "Leander Kafemann", "date": "02.09.2024", "recommend": ("Büro by LK", "flappy bird by LK", "pyimager by LK"), "feedbackTo": "leander@kafemann.berlin"}
+    return {"Version":(1, 0, 16), "Author": "Leander Kafemann", "date": "22.10.2024", "recommend": ("Büro by LK", "pyimager by LK"), "feedbackTo": "leander@kafemann.berlin"}
 
 def randprinter(numb: int = 1000, signs: list = list("abcdefghijklmnopqrstuvwxyzäöüß01234567890#'+*-_.:,;!§$%&/()=?`<>^°"), utf8: bool = False):
     """
@@ -46,7 +48,7 @@ def randprinter(numb: int = 1000, signs: list = list("abcdefghijklmnopqrstuvwxyz
     for _ in range(numb):
         print(random.choice(signs), end="")
         
-def randprinter_(numb: int = 1000, signs:list = list("abcdefghijklmnopqrstuvwxyzäöüß01234567890#'+*-_.:,;!§$%&/()=?`<>^°")):
+def randprinter_(numb: int = 1000, signs:list = list("abcdefghijklmnopqrstuvwxyzäöüß01234567890#'+*-_.:,;!§$%&/()=?`<>^°")) -> callable:
     """
     Method for getting randprinter method with personalised values.
     Args are specified at randprinter-method.
@@ -56,57 +58,58 @@ def randprinter_(numb: int = 1000, signs:list = list("abcdefghijklmnopqrstuvwxyz
         customized randprinter-object
         """
         randprinter(numb, signs)
-    return a; callable
+    return a
     
-def special_starter(numb: int = 150000000):
+def special_starter(numb: int = 150000000) -> bool:
     """
     Func for e.g. special startup:
     Function passes numb times. When the user presses ctrl+c,
-    True is returned.
+    True is returned, else Faöse.
     """
     try:
-        for i in range(numb):
+        for _ in range(numb):
             pass
-        return False; bool
+        return False
     except KeyboardInterrupt:
-        return True; bool
+        return True
     except:
-        return None; bool
+        return None
         
-def listToInt(list_: list[int] = [], acceptFloat: bool = True):
+def listToInt(list_: list[int] = [], acceptFloat: bool = True) -> int:
     """
-    Sums all integer-values of a list together.
+    Sums up all integer-values of a list.
     acceptFloat -- shall floats also be added to the sum
     """
     n = 0
     for i in list_:
         if isInt(i, acceptFloat):
             n += i
-    return n; int
+    return n
     
-def reverse(boolean: bool = None):
+def reverse(boolean: bool = None) -> (bool | None):
     """
-    Inverses given boolean
+    Inverses given boolean.
+    None returns None.
     """
     if boolean != None:
         return True if not boolean else False
     else:
         return None
     
-def isInt(toCheck, acceptFloat: bool = False):
+def isInt(toCheck: Any, acceptFloat: bool = False) -> bool:
     """
     Checks whether given value is int
     acceptFloat -- shall floats also be accepted as ints
     """
     return type(toCheck) == int or (type(toCheck) == float and acceptFloat)
 
-def replStr(index: int = 0, strObj: str = "a", setIn: str = "b"):
+def replStr(index: int = 0, strObj: str = "a", setIn: str = "b") -> str:
     """
     Replace index value of strObj with setIn text.
     """
     return strObj[:index]+setIn+strObj[index+1:]
 
-def replStrPassage(indexstart: int = 0, indexend: int = 1, strObj: str = "abc", setIn: str = "d"):
+def replStrPassage(indexstart: int = 0, indexend: int = 1, strObj: str = "abc", setIn: str = "d") -> str:
     """
     Replace all characters of strObj from indexstart to indexend with setIn.
     """
