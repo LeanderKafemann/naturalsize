@@ -30,6 +30,7 @@ returns the size of a 556677 B large file.<br/>
 The args are:<br/>
 <code>size</code> for the files size in B<br/>
 <code>comma</code> for the rounding of the size (default: <code>2</code>)<br/>
+<code>base2</code> uses 1024 instead of 1000 as the base for the size (default: <code>True</code>)<br/>
 <code>names</code> as a list of names you give to file size units (default: <code>["B", "KB", "MB", "GB", ...]</code>)</li>
 <li><code>randprinter</code> prints random signs the following:
 

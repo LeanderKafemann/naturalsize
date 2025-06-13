@@ -14,17 +14,23 @@ replStrPassage -- replace longer part of str
 
 from typing import Any
 
-def nsize(value: int, comma: int = 2, names: list = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "LK1", "LK2"]) -> str:
+def nsize(value: int, comma: int = 2, base2: bool = True, names: list = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "LK1", "LK2"]) -> str:
     """
     returns human-readable size of a file
     args:
     value -- integer size of file in bytes
     comma -- integer value of maximum ndigits
+    base2 -- if True, uses 1024-B-stepped size args, else 1000-B-stepped size args
     names -- list of human-readable names of 1024-B-stepped size args
     """
     values = [1, 1024]
+    if not base2:
+        values = [1, 1000]
     for _ in range(len(names)-2):
-        values.append(values[-1]*1024)
+        if base2:
+            values.append(values[-1]*1024)
+        else:
+            values.append(values[-1]*1000)
     idx = 0
     while value > values[idx+1]:
         idx += 1
@@ -34,7 +40,8 @@ def about() -> dict[str, (str | tuple)]:
     """
     Returns information about your release and other projects by LK
     """
-    return {"Version":(1, 0, 16), "Author": "Leander Kafemann", "date": "22.10.2024", "recommend": ("Büro by LK", "pyimager by LK"), "feedbackTo": "leander@kafemann.berlin"}
+    return {"Version":(1, 0, 17), "Author": "Leander Kafemann", "date": "13.06.2025",\
+            "recommend": ("Buero by LK", "pyimager by LK"), "feedbackTo": "leander@kafemann.berlin"}
 
 def randprinter(numb: int = 1000, signs: list = list("abcdefghijklmnopqrstuvwxyzäöüß01234567890#'+*-_.:,;!§$%&/()=?`<>^°"), utf8: bool = False):
     """
