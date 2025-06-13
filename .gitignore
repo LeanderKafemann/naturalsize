@@ -1,4 +1,4 @@
 .vs/*
 old/*
 dist/*
-src/PyWSGIRef.egg-info/*
+src/naturalsize.egg-info/*

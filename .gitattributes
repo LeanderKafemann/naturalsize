@@ -4,6 +4,3 @@
 
 *.toml linguist-language=Toml
 *.toml linguist-detectable=true
-
-*.pyhtml linguist-language=PyHTML
-*.pyhtml linguist-detectable=true
